@@ -110,6 +110,7 @@ class HomeScreen extends StatelessWidget {
                     ),
                   ),
                 ),
+                SizedBox(height: 40),
                 GridView.builder(
                   physics: NeverScrollableScrollPhysics(),
                   shrinkWrap: true,
@@ -128,16 +129,19 @@ class HomeScreen extends StatelessWidget {
                       maxHeight: 290.0 + 70.0,
                       child: Container(
                         margin: EdgeInsets.only(top: 70),
+                        padding: EdgeInsets.only(right: 10 ,left: 10),
                         child: ProductCard(imgList[i]),
                       ),
                     );
                   },
                 ),
+                SizedBox(height: 100),
               ],
             ),
           ),
         ),
       ),
+      
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: Colors.white,
         iconSize: 30,

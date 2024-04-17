@@ -24,7 +24,7 @@ class ProductCard extends StatelessWidget {
                 child: Image.asset(
                   "assets/${img}.png",
                   fit: BoxFit.cover,
-                  height: 230,
+                  height: 200,
                   )
               ),
               Padding(
