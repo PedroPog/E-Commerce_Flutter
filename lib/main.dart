@@ -1,3 +1,4 @@
+import 'package:ecommerce/page/home_page.dart';
 import 'package:ecommerce/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -15,7 +16,7 @@ class myApp extends StatelessWidget {
       theme: ThemeData(
         scaffoldBackgroundColor: Colors.white,
       ),
-      home: HomeScreen(),
+      home: HomePage()
     );
   }
 }

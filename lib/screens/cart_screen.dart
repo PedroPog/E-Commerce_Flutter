@@ -16,27 +16,9 @@ class CartScreen extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  InkWell(
-                    onTap: () {
-                      Navigator.pop(context);
-                    },
-                    child: Icon(
-                      Icons.arrow_back_ios_new,
-                      size: 22,
-                    ),
-                  ),
                   Text(
                     "Cart",
                     style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
-                  ),
-                  InkWell(
-                    onTap: () {
-                      Navigator.pop(context);
-                    },
-                    child: Icon(
-                      Icons.more_horiz,
-                      size: 30,
-                    ),
                   )
                 ],
               ),

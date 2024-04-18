@@ -141,14 +141,16 @@ class HomeScreen extends StatelessWidget {
           ),
         ),
       ),
-      
+      /*
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: Colors.white,
         iconSize: 30,
         selectedItemColor: Color(0xFFFD725A),
         unselectedItemColor: Colors.grey,
         currentIndex: 0,
-        onTap: (index){},
+        onTap: (index){
+
+        },
         type: BottomNavigationBarType.fixed,
         items: [
           BottomNavigationBarItem(icon: Icon(Icons.home),label: ''),
@@ -163,6 +165,7 @@ class HomeScreen extends StatelessWidget {
         onPressed: (){},
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.miniCenterDocked,
+      */
     );
   }
 }
