@@ -6,16 +6,24 @@ import 'package:ecommerce/utils/color_palette.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+
 class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+  final int currentPageIndex;
+
+  HomePage({Key? key, required this.currentPageIndex}) : super(key: key);
 
   @override
   State<HomePage> createState() => _HomePageState();
 }
 
 class _HomePageState extends State<HomePage> {
-  int currentPageIndex = 0;
+late int currentPageIndex;
 
+  @override
+  void initState() {
+    super.initState();
+    currentPageIndex = widget.currentPageIndex;
+  }
 
   @override
   Widget build(BuildContext context) {

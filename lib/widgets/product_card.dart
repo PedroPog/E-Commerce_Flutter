@@ -1,3 +1,4 @@
+import 'package:ecommerce/page/home_page.dart';
 import 'package:ecommerce/screens/product_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -27,24 +28,35 @@ class ProductCard extends StatelessWidget {
                   height: 200,
                   )
               ),
-              Padding(
-                padding: EdgeInsets.all(8),
-                child: Align(
-                  alignment: Alignment.topRight,
-                  child: Container(
-                    padding: EdgeInsets.all(8),
-                    decoration: BoxDecoration(
-                      color: Color(0xFFF7F8FA),
-                      borderRadius: BorderRadius.circular(20)
-                    ),
-                    child: Icon(
-                      Icons.favorite,
-                      size: 20,
-                      color: Colors.red,
+              InkWell(
+                onTap: (){
+                  Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context)=>HomePage(currentPageIndex: 2)
+                    )
+                  );
+                },
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Align(
+                    alignment: Alignment.topRight,
+                    child: Container(
+                      padding: EdgeInsets.all(8),
+                      decoration: BoxDecoration(
+                        color: Color(0xFFF7F8FA),
+                        borderRadius: BorderRadius.circular(20)
+                      ),
+                      child: Icon(
+                        Icons.favorite,
+                        size: 20,
+                        color: Colors.red,
+                      ),
                     ),
                   ),
                 ),
-              )
+              ),
+              
             ],)
           ),
         ),

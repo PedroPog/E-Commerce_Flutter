@@ -1,10 +1,10 @@
+import 'package:ecommerce/page/home_page.dart';
 import 'package:ecommerce/widgets/bottom_sheet.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
 class ProductScreen extends StatelessWidget {
-  
   String img;
   ProductScreen(this.img);
 
@@ -21,9 +21,7 @@ class ProductScreen extends StatelessWidget {
               decoration: BoxDecoration(
                 color: Color.fromARGB(255, 224, 224, 224),
                 image: DecorationImage(
-                  image: AssetImage("assets/${img}.png"),
-                  fit: BoxFit.cover
-                ),
+                    image: AssetImage("assets/${img}.png"), fit: BoxFit.cover),
               ),
               child: Padding(
                 padding: EdgeInsets.all(20),
@@ -31,15 +29,14 @@ class ProductScreen extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     InkWell(
-                      onTap: (){
+                      onTap: () {
                         Navigator.pop(context);
                       },
                       child: Container(
                         padding: EdgeInsets.all(10),
                         decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(30)
-                        ),
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(30)),
                         child: Icon(
                           Icons.arrow_back_ios_new,
                           size: 22,
@@ -47,15 +44,18 @@ class ProductScreen extends StatelessWidget {
                       ),
                     ),
                     InkWell(
-                      onTap: (){
-                        //Navigator.pop(context);
+                      onTap: () {
+                        Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) =>
+                                      HomePage(currentPageIndex: 2)));
                       },
                       child: Container(
                         padding: EdgeInsets.all(10),
                         decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(30)
-                        ),
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(30)),
                         child: Icon(
                           Icons.favorite,
                           size: 22,
@@ -69,7 +69,7 @@ class ProductScreen extends StatelessWidget {
             ),
             SizedBox(height: 10),
             Padding(
-              padding: EdgeInsets.only(top: 8,left: 15,right: 15),
+              padding: EdgeInsets.only(top: 8, left: 15, right: 15),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -81,17 +81,14 @@ class ProductScreen extends StatelessWidget {
                         Text(
                           img,
                           style: TextStyle(
-                            fontSize: 28,
-                            fontWeight: FontWeight.bold
-                          ),
+                              fontSize: 28, fontWeight: FontWeight.bold),
                         ),
                         Text(
                           "R\$ 300,52",
                           style: TextStyle(
-                            fontSize: 25,
-                            fontWeight: FontWeight.w700,
-                            color: Colors.red.withOpacity(0.7)
-                          ),
+                              fontSize: 25,
+                              fontWeight: FontWeight.w700,
+                              color: Colors.red.withOpacity(0.7)),
                         )
                       ],
                     ),
@@ -99,10 +96,7 @@ class ProductScreen extends StatelessWidget {
                   SizedBox(height: 8),
                   Text(
                     "For Women",
-                    style: TextStyle(
-                      color: Colors.black54,
-                      fontSize: 16
-                    ),
+                    style: TextStyle(color: Colors.black54, fontSize: 16),
                   ),
                   SizedBox(height: 15),
                   RatingBar.builder(
@@ -114,33 +108,30 @@ class ProductScreen extends StatelessWidget {
                     allowHalfRating: true,
                     itemCount: 5,
                     itemPadding: EdgeInsets.symmetric(horizontal: 4),
-                    itemBuilder: (context, _)=>Icon(
-                      Icons.star,color: Colors.amberAccent,
+                    itemBuilder: (context, _) => Icon(
+                      Icons.star,
+                      color: Colors.amberAccent,
                     ),
-                    onRatingUpdate: (rating){
-
-                    },
+                    onRatingUpdate: (rating) {},
                   ),
                   SizedBox(height: 20),
                   Text(
                     "Long Description of the product here",
-                    style: TextStyle(
-                      fontSize: 16,
-                      color: Colors.black54
-                    ),
+                    style: TextStyle(fontSize: 16, color: Colors.black54),
                   ),
                   SizedBox(height: 20),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
                       InkWell(
-                        onTap: (){},
+                        onTap: () {
+                          
+                        },
                         child: Container(
                           padding: EdgeInsets.all(18),
                           decoration: BoxDecoration(
-                            color: Color(0xFFF7F8FA),
-                            borderRadius: BorderRadius.circular(30)
-                          ),
+                              color: Color(0xFFF7F8FA),
+                              borderRadius: BorderRadius.circular(30)),
                           child: Icon(
                             CupertinoIcons.cart_fill,
                             size: 22,
@@ -149,31 +140,28 @@ class ProductScreen extends StatelessWidget {
                         ),
                       ),
                       InkWell(
-                        onTap: (){
+                        onTap: () {
                           showModalBottomSheet(
-                            backgroundColor: Colors.transparent,
-                            context: context,
-                            builder: (context){
-                              return CustomBottomSheet();
-                            }
-                          );
+                              backgroundColor: Colors.transparent,
+                              context: context,
+                              builder: (context) {
+                                return CustomBottomSheet();
+                              });
                         },
                         child: Container(
-                          padding: EdgeInsets.symmetric(vertical: 18,horizontal: 70),
-                          decoration: BoxDecoration(
-                            color: Color(0xFFFD725A),
-                            borderRadius: BorderRadius.circular(30)
-                          ),
-                          child: Text(
-                            "Buy Now",
-                            style: TextStyle(
-                              fontSize: 17,
-                              fontWeight: FontWeight.w600,
-                              color: Colors.white,
-                              letterSpacing: 1
-                            ),
-                          )
-                        ),
+                            padding: EdgeInsets.symmetric(
+                                vertical: 18, horizontal: 70),
+                            decoration: BoxDecoration(
+                                color: Color(0xFFFD725A),
+                                borderRadius: BorderRadius.circular(30)),
+                            child: Text(
+                              "Buy Now",
+                              style: TextStyle(
+                                  fontSize: 17,
+                                  fontWeight: FontWeight.w600,
+                                  color: Colors.white,
+                                  letterSpacing: 1),
+                            )),
                       )
                     ],
                   )
