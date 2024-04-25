@@ -2,6 +2,7 @@ import 'package:ecommerce/screens/cart_screen.dart';
 import 'package:ecommerce/screens/favorite_screen.dart';
 import 'package:ecommerce/screens/home_screen.dart';
 import 'package:ecommerce/screens/person_screen.dart';
+import 'package:ecommerce/screens/personde_screen.dart';
 import 'package:ecommerce/utils/color_palette.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -107,7 +108,7 @@ late int currentPageIndex;
         FavoriteScreen(),
 
         /// Person page
-        ParsonScreen()
+        ParsonScreen(),
       ][currentPageIndex],
     );
   }
