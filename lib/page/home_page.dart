@@ -50,7 +50,7 @@ late int currentPageIndex;
               color: ColorPalette.grey,
               size: 30,
             ),
-            label: '',
+            label: 'Home',
           ),
           NavigationDestination(
             selectedIcon: Icon(
@@ -67,7 +67,7 @@ late int currentPageIndex;
               ),
               backgroundColor: ColorPalette.primaryColor,
             ),
-            label: '',
+            label: 'Carrinho',
           ),
           NavigationDestination(
             selectedIcon: Icon(
@@ -80,7 +80,7 @@ late int currentPageIndex;
               color: ColorPalette.grey,
               size: 30,
             ),
-            label: '',
+            label: 'Favorito',
           ),
           NavigationDestination(
             selectedIcon: Icon(
@@ -93,7 +93,7 @@ late int currentPageIndex;
               color: ColorPalette.grey,
               size: 30,
             ),
-            label: '',
+            label: 'Perfil',
           ),
         ],
       ),

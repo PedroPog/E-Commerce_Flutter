@@ -1,8 +1,17 @@
+import 'package:ecommerce/model/item_cart.dart';
 import 'package:ecommerce/widgets/cart_item_samples.dart';
 import 'package:flutter/material.dart';
 
 class CartScreen extends StatelessWidget {
-  const CartScreen({super.key});
+  CartScreen({super.key});
+
+  List<CartItem> listCart = [
+    CartItem(itemName: "Warm Jacket", itemPrice: 15.2, itemQuantity: 5),
+    CartItem(itemName: "Black T-Shirt", itemPrice: 15.2, itemQuantity: 10),
+    CartItem(itemName: "Black Pant", itemPrice: 15.2, itemQuantity: 2),
+    CartItem(itemName: "Ladies Bag", itemPrice: 15.2, itemQuantity: 1),
+  ];
+
 
   @override
   Widget build(BuildContext context) {
@@ -27,9 +36,12 @@ class CartScreen extends StatelessWidget {
               padding: EdgeInsets.only(top: 15),
               child: Column(
                 children: [
-                  CartItemSamples(),
+                  for(int i=0;i<listCart.length;i++)
+                  CartItemSamples(
+                    cartItem: listCart[i],
+                  ),
                   SizedBox(height: 50),
-                  Padding(
+                  /*Padding(
                     padding: EdgeInsets.symmetric(horizontal: 20),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -37,7 +49,9 @@ class CartScreen extends StatelessWidget {
                         Text(
                           "Select All",
                           style: TextStyle(
-                              fontSize: 16, fontWeight: FontWeight.w500),
+                              fontSize: 20,
+                              fontWeight: FontWeight.w600,
+                              color: Colors.black.withOpacity(0.7)),
                         ),
                         Checkbox(
                           activeColor: Color(0xFFFD725A),
@@ -47,7 +61,7 @@ class CartScreen extends StatelessWidget {
                       ],
                     ),
                   ),
-                  SizedBox(height: 15),
+                  SizedBox(height: 15),*/
                   Padding(
                     padding: EdgeInsets.symmetric(horizontal: 20),
                     child: Row(
