@@ -1,4 +1,3 @@
-import 'package:ecommerce/page/home_page.dart';
 import 'package:flutter/material.dart';
 
 class ParsonScreen extends StatefulWidget {
@@ -9,57 +8,30 @@ class ParsonScreen extends StatefulWidget {
 }
 
 class _ParsonScreenState extends State {
-  String? authToken; // Token de autenticação
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Login'),
-      ),
-      body: Padding(
-        padding: EdgeInsets.all(20),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            TextFormField(
-              decoration: InputDecoration(
-                labelText: 'Email',
-                prefixIcon: Icon(Icons.email),
-              ),
+      body: SingleChildScrollView(
+        child: SafeArea(
+          child: Padding(
+            padding: EdgeInsets.only(top: 15, bottom: 15, left: 10, right: 10),
+            child: Column(
+              children: [
+                Row(
+                  children: [
+                    Icon(
+                      Icons.person,
+                      size: 150,
+                    ),
+                    Text("NOME COMPLETO"),
+                    Text("")
+                  ],
+                )
+              ],
             ),
-            SizedBox(height: 20),
-            TextFormField(
-              decoration: InputDecoration(
-                labelText: 'Password',
-                prefixIcon: Icon(Icons.lock),
-              ),
-              obscureText: true, // Oculta o texto digitado
-            ),
-            SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: () {
-                String? token =
-                    'seu_token_gerado'; // Substitua 'seu_token_gerado' pelo token real
-                setState(() {
-                  authToken = token; // Atualiza o token de autenticação
-                });
-                if (authToken != null) {
-                  // Navega para a próxima tela
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => HomePage(currentPageIndex: 0)),
-                  );
-                }
-              },
-              child: Text('Login'),
-            ),
-          ],
+          ),
         ),
       ),
     );
   }
 }
-
-
