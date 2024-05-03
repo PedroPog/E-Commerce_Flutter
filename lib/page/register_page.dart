@@ -1,21 +1,22 @@
+import 'package:ecommerce/page/login_page.dart';
 import 'package:ecommerce/utils/color_palette.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterflow_ui/flutterflow_ui.dart';
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({super.key});
+class RegisterPage extends StatefulWidget {
+  const RegisterPage({super.key});
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<RegisterPage> createState() => _RegisterPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _RegisterPageState extends State<RegisterPage> {
   late bool passwordVisibility = true;
+
   @override
   void initState(){
     super.initState();
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -45,7 +46,7 @@ class _LoginPageState extends State<LoginPage> {
                 boxShadow: [
                   BoxShadow(
                     blurRadius: 7,
-                    color: Color(0x4D090F13),
+                    color: ColorPalette.shadowColor,
                     offset: Offset(
                       0.0,
                       3,
@@ -88,7 +89,7 @@ class _LoginPageState extends State<LoginPage> {
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
                             Text(
-                              'Bem vindo de volta,',
+                              'Cadastre-se,',
                               style: FlutterFlowTheme.of(context)
                                   .displaySmall
                                   .override(
@@ -115,7 +116,6 @@ class _LoginPageState extends State<LoginPage> {
                                       .override(
                                         fontFamily: 'Urbanist',
                                         letterSpacing: 0,
-                                        color: Colors.black
                                       ),
                                   hintText: 'Enter your email here...',
                                   hintStyle: FlutterFlowTheme.of(context)
@@ -123,11 +123,10 @@ class _LoginPageState extends State<LoginPage> {
                                       .override(
                                         fontFamily: 'Urbanist',
                                         letterSpacing: 0,
-                                        color: Colors.black
                                       ),
                                   enabledBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
-                                      color: Colors.black,
+                                      color: Colors.grey,
                                       width: 2,
                                     ),
                                     borderRadius: BorderRadius.circular(8),
@@ -165,7 +164,7 @@ class _LoginPageState extends State<LoginPage> {
                                     .override(
                                       fontFamily: 'Urbanist',
                                       letterSpacing: 0,
-                                      color: Colors.black
+                                      color: Colors.black,
                                     ),
                               ),
                             ),
@@ -200,7 +199,7 @@ class _LoginPageState extends State<LoginPage> {
                                       ),
                                   enabledBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
-                                      color: Colors.black,                                    
+                                      color: Colors.blueGrey,                                    
                                       width: 2,
                                     ),
                                     borderRadius: BorderRadius.circular(8),
@@ -265,10 +264,8 @@ class _LoginPageState extends State<LoginPage> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             FFButtonWidget(
-                              onPressed: () {
-                                print('Button-ForgotPassword pressed ...');
-                              },
-                              text: 'Forgot Password?',
+                              onPressed: () {},
+                              text: '',
                               options: FFButtonOptions(
                                 width: 170,
                                 height: 30,
@@ -282,7 +279,7 @@ class _LoginPageState extends State<LoginPage> {
                                     .override(
                                       fontFamily: 'Urbanist',
                                       letterSpacing: 0,
-                                      color: Colors.black
+                                      color: Colors.black,
                                     ),
                                 elevation: 0,
                                 borderSide: BorderSide(
@@ -296,8 +293,8 @@ class _LoginPageState extends State<LoginPage> {
                               padding:
                                   EdgeInsetsDirectional.fromSTEB(0, 0, 4, 0),
                               child: FFButtonWidget(
-                                onPressed: () => Navigator.pushNamed(context, '/'),
-                                text: 'Login',
+                                onPressed: () => Navigator.pushNamed(context, '/login'),
+                                text: 'Cadastrar',
                                 options: FFButtonOptions(
                                   width: 130,
                                   height: 50,
@@ -337,7 +334,7 @@ class _LoginPageState extends State<LoginPage> {
                               padding:
                                   EdgeInsetsDirectional.fromSTEB(20, 0, 0, 0),
                               child: Text(
-                                'Don\'t have an account?',
+                                'Já tem uma conta?',
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
@@ -350,8 +347,8 @@ class _LoginPageState extends State<LoginPage> {
                               ),
                             ),
                             FFButtonWidget(
-                              onPressed: () => Navigator.pushNamed(context, '/register'),
-                              text: 'Create Account',
+                              onPressed: () => Navigator.pushNamed(context, '/login'),
+                              text: 'Fazer login',
                               options: FFButtonOptions(
                                 width: 150,
                                 height: 30,
