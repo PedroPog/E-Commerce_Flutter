@@ -1,6 +1,7 @@
 import 'package:ecommerce/page/home_page.dart';
 import 'package:ecommerce/page/login_page.dart';
 import 'package:ecommerce/page/register_page.dart';
+import 'package:ecommerce/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -25,7 +26,7 @@ class myApp extends StatelessWidget {
           scaffoldBackgroundColor: Colors.white,
         ),
         routes: {
-          '/':(context)=>HomePage(currentPageIndex: 0),
+          '/':(context)=>HomeScreen(),
           '/login':(context)=>LoginPage(),
           '/register':(context)=>RegisterPage()
         },);

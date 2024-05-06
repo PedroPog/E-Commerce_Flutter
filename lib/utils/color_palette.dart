@@ -13,4 +13,5 @@ class ColorPalette{
 
   static const Color white = Colors.white;
   static const Color grey = Colors.grey;
+  static const Color fundo = Color(0xFFE9E9E9);
 }

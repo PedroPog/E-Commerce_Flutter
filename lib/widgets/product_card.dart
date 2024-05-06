@@ -1,10 +1,11 @@
 import 'package:ecommerce/model/item_cart.dart';
+import 'package:ecommerce/screens/product_scrren.dart';
 import 'package:ecommerce/utils/color_palette.dart';
 import 'package:flutter/material.dart';
 
 class ProductCard extends StatefulWidget {
   final ProdItens listProd;
-  
+
   ProductCard(this.listProd, {super.key});
 
   @override
@@ -19,48 +20,53 @@ class _ProductCardState extends State<ProductCard> {
     return Column(
       children: [
         Padding(
-          padding: const EdgeInsets.only(left: 10,right: 10),
+          padding: const EdgeInsets.only(left: 10, right: 10),
           child: ClipRRect(
             borderRadius: BorderRadius.circular(10),
             child: Container(
-              color: ColorPalette.grey,
+              decoration: BoxDecoration(
+                  border: Border.all(width: 0.5, style: BorderStyle.solid),
+                  borderRadius: BorderRadius.circular(20)),
               child: Stack(
+                alignment: Alignment.bottomCenter,
                 children: [
                   InkWell(
-                    onTap: (){
-                      //Realizar rotas
+                    onTap: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) =>
+                              ProductScreen(widget.listProd)));
                     },
                     child: Image.asset(
                       "assets/produtos/${widget.listProd.itemName[0]}.png",
                       fit: BoxFit.cover,
-                      height: 240,
+                      height: 290,
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Align(
-                      alignment: Alignment.topRight,
-                      child: GestureDetector(
-                        onTap: () {
-                          setState(() {
-                            isFavorite = !isFavorite; // Alterna o estado do botão
-                          });
-                        },
-                        child: Container(
-                          padding: EdgeInsets.all(8),
-                          decoration: BoxDecoration(
-                            color: isFavorite ? Colors.red : Colors.white,
-                            borderRadius: BorderRadius.circular(20),
-                          ),
-                          child: Icon(
-                            Icons.favorite,
-                            size: 20,
-                            color: isFavorite ? Colors.white : Colors.red,
+                      padding: const EdgeInsets.all(8.0),
+                      child: Align(
+                        alignment: Alignment.topRight,
+                        child: GestureDetector(
+                          onTap: () {
+                            setState(() {
+                              isFavorite =
+                                  !isFavorite; // Alterna o estado do botão
+                            });
+                          },
+                          child: Container(
+                            padding: EdgeInsets.all(8),
+                            decoration: BoxDecoration(
+                              color: isFavorite ? Colors.red : Colors.white,
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                            child: Icon(
+                              Icons.favorite,
+                              size: 20,
+                              color: isFavorite ? Colors.white : Colors.red,
+                            ),
                           ),
                         ),
-                      ),
-                    )
-                  )
+                      ))
                 ],
               ),
             ),

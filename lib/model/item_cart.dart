@@ -11,10 +11,12 @@ class CartItem {
 }
 
 class ProdItens {
+  final String name;
   final List<String> itemName;
   final double itemPrice;
 
   ProdItens({
+    required this.name,
     required this.itemName,
     required this.itemPrice,
   });
