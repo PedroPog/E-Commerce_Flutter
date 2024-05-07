@@ -23,7 +23,7 @@ class _ProductScreenState extends State<ProductScreen> {
         foregroundColor: ColorPalette.thirdColor,
         centerTitle: true,
       ),
-      body: SafeArea(
+      body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -109,7 +109,7 @@ class _ProductScreenState extends State<ProductScreen> {
                   ),
                   SizedBox(height: 20),
                   Text(
-                    "Long Description of the product here",
+                    "Long Description of the product here Long Description of the product here Long Description of the product here Long Description of the product here",
                     style: TextStyle(fontSize: 16, color: Colors.black54),
                   ),
                   SizedBox(height: 20),
@@ -155,7 +155,8 @@ class _ProductScreenState extends State<ProductScreen> {
                             )),
                       )
                     ],
-                  )
+                  ),
+                  SizedBox(height: 10),
                 ],
               ),
             )
