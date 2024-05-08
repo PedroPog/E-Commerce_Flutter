@@ -31,7 +31,7 @@ class _ProductScreenState extends State<ProductScreen> {
               alignment: Alignment.topCenter,
               height: MediaQuery.of(context).size.height / 1.7,
               decoration: BoxDecoration(
-                color: Color.fromARGB(255, 224, 224, 224),
+                color: Color.fromARGB(255, 255, 255, 255),
                 image: DecorationImage(
                     image: AssetImage(
                         "assets/produtos/${widget.listProd.itemName[0]}.png"),
@@ -47,7 +47,7 @@ class _ProductScreenState extends State<ProductScreen> {
                       child: Container(
                         padding: EdgeInsets.all(10),
                         decoration: BoxDecoration(
-                            color: Colors.white,
+                            color: Color.fromARGB(255, 221, 221, 221),
                             borderRadius: BorderRadius.circular(30)),
                         child: Icon(
                           Icons.favorite,
@@ -66,39 +66,28 @@ class _ProductScreenState extends State<ProductScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Padding(
-                    padding: EdgeInsets.only(right: 5),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          widget.listProd.name,
-                          style: TextStyle(
-                              fontSize: 28, fontWeight: FontWeight.bold),
-                        ),
-                        Text(
-                          "R\$ 300,52",
-                          style: TextStyle(
-                              fontSize: 25,
-                              fontWeight: FontWeight.w700,
-                              color: Colors.red.withOpacity(0.7)),
-                        )
-                      ],
-                    ),
-                  ),
-                  SizedBox(height: 8),
                   Text(
-                    "For Women",
-                    style: TextStyle(color: Colors.black54, fontSize: 16),
+                    widget.listProd.name,
+                    style: TextStyle(
+                        fontSize: 28, fontWeight: FontWeight.bold),
+                  ),
+                  Text(
+                    "R\$ "+widget.listProd.itemPrice.toString(),
+                    style: TextStyle(
+                        fontSize: 25,
+                        fontWeight: FontWeight.w700,
+                        color: ColorPalette.secondaryColor
+                        ),
                   ),
                   SizedBox(height: 15),
                   RatingBar.builder(
                     unratedColor: Color.fromARGB(255, 223, 221, 221),
                     itemSize: 28,
-                    initialRating: 3.5,
+                    initialRating: widget.listProd.itemRating,
                     minRating: 0.5,
+                    ignoreGestures: true,
                     direction: Axis.horizontal,
-                    allowHalfRating: true,
+                    allowHalfRating: false,
                     itemCount: 5,
                     itemPadding: EdgeInsets.symmetric(horizontal: 4),
                     itemBuilder: (context, _) => Icon(
@@ -121,12 +110,12 @@ class _ProductScreenState extends State<ProductScreen> {
                         child: Container(
                           padding: EdgeInsets.all(18),
                           decoration: BoxDecoration(
-                              color: Color(0xFFF7F8FA),
+                              color: ColorPalette.thirdColor,
                               borderRadius: BorderRadius.circular(30)),
                           child: Icon(
                             CupertinoIcons.cart_fill,
                             size: 22,
-                            color: Color(0xFFFD725A),
+                            color: ColorPalette.primaryColor
                           ),
                         ),
                       ),
@@ -136,21 +125,21 @@ class _ProductScreenState extends State<ProductScreen> {
                               backgroundColor: Colors.transparent,
                               context: context,
                               builder: (context) {
-                                return CustomBottomSheet();
+                                return CustomBottomSheet(widget.listProd);
                               });
                         },
                         child: Container(
                             padding: EdgeInsets.symmetric(
                                 vertical: 18, horizontal: 70),
                             decoration: BoxDecoration(
-                                color: Color(0xFFFD725A),
+                                color: ColorPalette.primaryColor,
                                 borderRadius: BorderRadius.circular(30)),
                             child: Text(
                               "Buy Now",
                               style: TextStyle(
                                   fontSize: 17,
                                   fontWeight: FontWeight.w600,
-                                  color: Colors.white,
+                                  color: ColorPalette.thirdColor,
                                   letterSpacing: 1),
                             )),
                       )

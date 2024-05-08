@@ -1,6 +1,5 @@
 import 'package:ecommerce/model/item_cart.dart';
-import 'package:ecommerce/screens/product_scrren.dart';
-import 'package:ecommerce/utils/color_palette.dart';
+import 'package:ecommerce/screens/product_screen.dart';
 import 'package:flutter/material.dart';
 
 class ProductCard extends StatefulWidget {
@@ -14,6 +13,7 @@ class ProductCard extends StatefulWidget {
 
 class _ProductCardState extends State<ProductCard> {
   bool isFavorite = false;
+  int imageIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -25,19 +25,27 @@ class _ProductCardState extends State<ProductCard> {
             borderRadius: BorderRadius.circular(10),
             child: Container(
               decoration: BoxDecoration(
-                  border: Border.all(width: 0.5, style: BorderStyle.solid),
-                  borderRadius: BorderRadius.circular(20)),
+                color: const Color.fromARGB(255, 172, 172, 172),
+                //border: Border.all(width: 0.5, style: BorderStyle.solid),
+                borderRadius: BorderRadius.circular(20)),
               child: Stack(
                 alignment: Alignment.bottomCenter,
                 children: [
-                  InkWell(
+                  GestureDetector(
+                    onVerticalDragUpdate: (details){
+                      if(details.delta.dy < -10){
+                        setState(() {
+                          imageIndex = (imageIndex + 1) % widget.listProd.itemName.length;
+                        });
+                      }
+                    },
                     onTap: () {
                       Navigator.of(context).push(MaterialPageRoute(
                           builder: (context) =>
                               ProductScreen(widget.listProd)));
                     },
                     child: Image.asset(
-                      "assets/produtos/${widget.listProd.itemName[0]}.png",
+                      "assets/produtos/${widget.listProd.itemName[imageIndex]}.png",
                       fit: BoxFit.cover,
                       height: 290,
                     ),

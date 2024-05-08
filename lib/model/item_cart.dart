@@ -14,11 +14,13 @@ class ProdItens {
   final String name;
   final List<String> itemName;
   final double itemPrice;
+  final double itemRating;
 
   ProdItens({
     required this.name,
     required this.itemName,
     required this.itemPrice,
+    required this.itemRating
   });
 }
 
@@ -29,5 +31,23 @@ class ItemCateg{
   ItemCateg({
     required this.itemName,
     required this.itemImg
+  });
+}
+
+class SheetItem{
+  String itemSize;
+  int itemQtd;
+  double itemValorTotal;
+  String name;
+  List<String> itemName;
+  double itemPrice;
+  
+  SheetItem({
+    required this.itemSize,
+    required this.itemQtd,
+    required this.itemValorTotal,
+    required this.itemName,
+    required this.itemPrice,
+    required this.name
   });
 }

@@ -4,7 +4,6 @@ import 'package:ecommerce/widgets/product_card.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
-
   HomePage({Key? key}) : super(key: key);
 
   @override
@@ -25,9 +24,36 @@ class _HomePageState extends State<HomePage> {
   ];
 
   List<ProdItens> listProd = [
-    ProdItens(name: "Camisa Sâo Paulo 1",itemName: ["sp1.1", "sp1.2", "sp1.3"], itemPrice: 15.3),
-    ProdItens(name: "Camisa Sâo Paulo 2",itemName: ["sp2.1", "sp2.2", "sp2.3"], itemPrice: 15.3),
-    ProdItens(name: "Camisa Sâo Paulo 3",itemName: ["sp3.1", "sp3.2", "sp3.3"], itemPrice: 15.3),
+    ProdItens(
+        name: "Camisa Sâo Paulo 1",
+        itemName: ["sp1.1", "sp1.2", "sp1.3"],
+        itemPrice: 15.3,
+        itemRating: 3.5),
+    ProdItens(
+        name: "Camisa Sâo Paulo 2",
+        itemName: ["sp2.1", "sp2.2", "sp2.3"],
+        itemPrice: 15.3,
+        itemRating: 4.5),
+    ProdItens(
+        name: "Camisa Sâo Paulo 3",
+        itemName: ["sp3.1", "sp3.2", "sp3.3"],
+        itemPrice: 15.3,
+        itemRating: 5),
+    ProdItens(
+        name: "Camisa Feia 1",
+        itemName: ["cori1.1", "cori1.2"],
+        itemPrice: 15.3,
+        itemRating: 1.5),
+    ProdItens(
+        name: "Camisa Feia 2",
+        itemName: ["cori2.1", "cori2.2"],
+        itemPrice: 15.3,
+        itemRating: 3),
+    ProdItens(
+        name: "Camisa Feia 3",
+        itemName: ["cori3.1", "cori3.2"],
+        itemPrice: 15.3,
+        itemRating: 4.5),
   ];
 
   int selectedIndex = 0;
@@ -40,7 +66,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: ColorPalette.fundo,
+      //backgroundColor: ColorPalette.fundo,
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -83,8 +109,7 @@ class _HomePageState extends State<HomePage> {
                       ),
                     )
                   ],
-                )
-            ),
+                )),
             SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: Padding(
@@ -111,8 +136,7 @@ class _HomePageState extends State<HomePage> {
                           )),
                     );
                   })),
-                )
-            ),
+                )),
             SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: Padding(

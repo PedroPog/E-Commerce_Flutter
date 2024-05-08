@@ -1,4 +1,3 @@
-import 'package:ecommerce/page/home_page.dart';
 import 'package:ecommerce/page/login_page.dart';
 import 'package:ecommerce/page/register_page.dart';
 import 'package:ecommerce/screens/home_screen.dart';
