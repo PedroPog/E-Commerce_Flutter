@@ -1,3 +1,4 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:ecommerce/model/item_cart.dart';
 import 'package:ecommerce/utils/color_palette.dart';
 import 'package:ecommerce/widgets/product_card.dart';
@@ -18,9 +19,6 @@ class _HomePageState extends State<HomePage> {
     ItemCateg(itemName: "Basquete", itemImg: ""),
     ItemCateg(itemName: "Volei", itemImg: ""),
     ItemCateg(itemName: "Futsal", itemImg: ""),
-    ItemCateg(itemName: "TESTE", itemImg: ""),
-    ItemCateg(itemName: "TESTE", itemImg: ""),
-    ItemCateg(itemName: "TESTE", itemImg: ""),
   ];
 
   List<ProdItens> listProd = [
@@ -55,6 +53,13 @@ class _HomePageState extends State<HomePage> {
         itemPrice: 15.3,
         itemRating: 4.5),
   ];
+
+  List<String> listBanner = [
+    "assets/cover.jpg",
+    "assets/banner.png",
+    "assets/cover3.jpg"
+  ]; // Exemplos de caminhos de imagem
+  int _bannerIndex = 0;
 
   int selectedIndex = 0;
 
@@ -93,50 +98,68 @@ class _HomePageState extends State<HomePage> {
                         cursorColor: ColorPalette.primaryColor,
                         maxLength: 30,
                         decoration: InputDecoration(
-                            prefixIcon: Icon(
-                              Icons.search,
-                              color: ColorPalette.primaryColor,
-                            ),
-                            filled: true,
-                            fillColor: ColorPalette.secondaryColor,
-                            hintText: "Buscar",
-                            border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(30),
-                                borderSide: BorderSide.none),
-                            hintStyle:
-                                TextStyle(color: ColorPalette.primaryColor),
-                            suffixStyle: TextStyle(color: Colors.blue)),
+                          prefixIcon: Icon(
+                            Icons.search,
+                            color: ColorPalette.primaryColor,
+                          ),
+                          filled: true,
+                          fillColor: ColorPalette.secondaryColor,
+                          hintText: "Buscar",
+                          border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(30),
+                              borderSide: BorderSide.none),
+                          hintStyle:
+                              TextStyle(color: ColorPalette.primaryColor),
+                          suffixStyle: TextStyle(color: Colors.blue),
+                          counterText: '',
+                        ),
+                        style: TextStyle(
+                            color: ColorPalette.primaryColor, fontSize: 17),
                       ),
                     )
                   ],
                 )),
-            SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                child: Padding(
-                  padding: EdgeInsets.only(top: 25),
-                  child: Row(
-                      children: List.generate(listCateg.length, (index) {
-                    return GestureDetector(
-                      onTap: () {
-                        setState(() {
-                          //selectedIndex = index;
-                        });
-                      },
-                      child: Container(
-                          margin: EdgeInsets.only(right: 25, top: 20),
-                          alignment: Alignment.center,
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(30),
-                            child: Image.asset(
-                              "assets/cover.jpg",
-                              width: MediaQuery.of(context).size.width / 1.2,
-                              height: 200,
-                              fit: BoxFit.contain,
-                            ),
-                          )),
-                    );
-                  })),
-                )),
+            SizedBox(
+              height: 20,
+            ),
+            CarouselSlider(
+              options: CarouselOptions(
+                height: 200.0,
+                autoPlay: true,
+                enableInfiniteScroll: true,
+                autoPlayInterval: Duration(seconds: 3),
+                onPageChanged: (index,reason){
+                  setState(() {
+                    _bannerIndex = index;
+                  });
+                }
+              ),
+              items: listBanner.asMap().entries.map((entry) {
+                int index = entry.key;
+                String item = entry.value;
+
+                bool isSelected = index == _bannerIndex;
+
+                return Builder(
+                  builder: (BuildContext context) {
+                    return AnimatedContainer(
+                    duration: Duration(milliseconds: 300),
+                    curve: Curves.easeInOut,
+                    padding: EdgeInsets.all(isSelected ? 0.0 : 50.0),
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(10),
+                      child: Image.asset(
+                        item,
+                        width: MediaQuery.of(context).size.width,
+                        height: MediaQuery.of(context).size.height,
+                        fit: BoxFit.fill,
+                      ),
+                    ),
+                  );
+                  },
+                );
+              }).toList(),
+            ),
             SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: Padding(
@@ -190,12 +213,12 @@ class _HomePageState extends State<HomePage> {
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
+      /*floatingActionButton: FloatingActionButton(
         onPressed: () {},
         backgroundColor: ColorPalette.primaryColor,
         foregroundColor: ColorPalette.thirdColor,
         child: Icon(Icons.shopping_cart_outlined),
-      ),
+      ),*/
     );
   }
 }

@@ -1,5 +1,6 @@
 import 'package:ecommerce/page/favorite_page.dart';
 import 'package:ecommerce/page/home_page.dart';
+import 'package:ecommerce/page/profile_page.dart';
 import 'package:ecommerce/utils/color_palette.dart';
 import 'package:flutter/material.dart';
 
@@ -18,38 +19,68 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: NavigationBar(
-        backgroundColor: ColorPalette.thirdColor,
-        onDestinationSelected: (int index){
-          setState(() {
-            currentPageIndex = index;
-          });
-        },
-        indicatorColor: ColorPalette.primaryColor,
-        selectedIndex: currentPageIndex,
-        labelBehavior: labelBehavior,
-        destinations: const <Widget>[
-          NavigationDestination(
-            selectedIcon: Icon(
-              Icons.home,
-              color: ColorPalette.thirdColor,
+      bottomNavigationBar: BottomAppBar(
+        shape: CircularNotchedRectangle(),
+        notchMargin: 8.0,
+        color: ColorPalette.thirdColor,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: <Widget>[
+            IconButton(
+              icon: Icon(
+                Icons.home_outlined,
+                color: currentPageIndex == 0 ?
+                ColorPalette.primaryColor :
+                ColorPalette.secondaryColor,
+              ),
+              onPressed: (){
+                setState(() {
+                  currentPageIndex = 0;
+                });
+              },
             ),
-            icon: Icon(Icons.home_outlined),
-            label: "Home",
-          ),
-          NavigationDestination(
-            selectedIcon: Icon(
-              Icons.favorite,
-              color: ColorPalette.thirdColor,
+            IconButton(
+              icon: Icon(
+                Icons.favorite_border_rounded,
+                color: currentPageIndex == 1 ?
+                ColorPalette.primaryColor:
+                ColorPalette.secondaryColor,
+              ),
+              onPressed: (){
+                setState(() {
+                  currentPageIndex = 1;
+                });
+              },
             ),
-            icon: Icon(Icons.favorite_border_rounded),
-            label: 'Favorite',
-          ),
-        ],
+            Spacer(),
+            IconButton(
+              icon: Icon(
+                Icons.person_2_outlined,
+                color: currentPageIndex == 2 ?
+                ColorPalette.primaryColor:
+                ColorPalette.secondaryColor,
+              ),
+              onPressed: (){
+                setState(() {
+                  currentPageIndex = 2;
+                });
+              },
+            )
+          ],
+        ),
       ),
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: ColorPalette.primaryColor,
+        onPressed: (){
+
+        },
+        child: Icon(Icons.shopping_cart_outlined),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       body: <Widget>[
-        HomePage(),
+        ProfilePage(),
         FavoritePage(),
+        HomePage(),
       ][currentPageIndex],
     );
   }

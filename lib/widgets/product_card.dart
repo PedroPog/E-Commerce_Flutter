@@ -25,17 +25,18 @@ class _ProductCardState extends State<ProductCard> {
             borderRadius: BorderRadius.circular(10),
             child: Container(
               decoration: BoxDecoration(
-                color: const Color.fromARGB(255, 172, 172, 172),
-                //border: Border.all(width: 0.5, style: BorderStyle.solid),
-                borderRadius: BorderRadius.circular(20)),
+                  color: const Color.fromARGB(255, 172, 172, 172),
+                  //border: Border.all(width: 0.5, style: BorderStyle.solid),
+                  borderRadius: BorderRadius.circular(20)),
               child: Stack(
                 alignment: Alignment.bottomCenter,
                 children: [
                   GestureDetector(
-                    onVerticalDragUpdate: (details){
-                      if(details.delta.dy < -10){
+                    onHorizontalDragUpdate: (details) {
+                      if (details.delta.dx < -10) {
                         setState(() {
-                          imageIndex = (imageIndex + 1) % widget.listProd.itemName.length;
+                          imageIndex = (imageIndex + 1) %
+                              widget.listProd.itemName.length;
                         });
                       }
                     },

@@ -31,6 +31,7 @@ class _CustomBottomSheetState extends State<CustomBottomSheet> {
         itemName: _itens.itemName,
         itemPrice: _itens.itemPrice,
         name: _itens.name);
+    int itemQtd = 1;
 
     return Container(
       padding: EdgeInsets.only(left: 20, right: 20, bottom: 50),
@@ -107,9 +108,10 @@ class _CustomBottomSheetState extends State<CustomBottomSheet> {
               GestureDetector(
                 onTap: () {
                   setState(() {
-                    if (resp.itemQtd > 0) {
+                    if (itemQtd >= 1) {
                       resp.itemQtd--;
-                      print(resp.itemQtd);
+                      itemQtd--;
+                      print(itemQtd);
                     }
                   });
                 },
@@ -127,7 +129,7 @@ class _CustomBottomSheetState extends State<CustomBottomSheet> {
               ),
               SizedBox(width: 8),
               Text(
-                resp.itemQtd.toString(),
+                itemQtd.toString(),
                 style: TextStyle(
                     fontSize: 17,
                     fontWeight: FontWeight.w400,
@@ -138,7 +140,8 @@ class _CustomBottomSheetState extends State<CustomBottomSheet> {
                   onTap: () {
                     setState(() {
                       resp.itemQtd++;
-                      print(resp.itemQtd);
+                      itemQtd++;
+                      print(itemQtd);
                     });
                   },
                   child: Container(
@@ -167,7 +170,7 @@ class _CustomBottomSheetState extends State<CustomBottomSheet> {
                 ),
               ),
               Text(
-                "R\$ 300.52",
+                "R\$ "+resp.itemPrice.toString(),
                 style: TextStyle(
                     color: ColorPalette.thirdColor,
                     fontSize: 20,

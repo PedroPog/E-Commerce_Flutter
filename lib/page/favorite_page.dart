@@ -1,3 +1,4 @@
+import 'package:ecommerce/utils/color_palette.dart';
 import 'package:flutter/material.dart';
 
 class FavoritePage extends StatefulWidget {
@@ -10,6 +11,14 @@ class FavoritePage extends StatefulWidget {
 class _FavoritePageState extends State<FavoritePage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Favorito"),
+        automaticallyImplyLeading: false,
+        centerTitle: true,
+        backgroundColor: ColorPalette.primaryColor,
+        foregroundColor: ColorPalette.thirdColor,
+      ),
+    );
   }
 }
