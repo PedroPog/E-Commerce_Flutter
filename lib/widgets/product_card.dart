@@ -25,7 +25,7 @@ class _ProductCardState extends State<ProductCard> {
             borderRadius: BorderRadius.circular(10),
             child: Container(
               decoration: BoxDecoration(
-                  color: const Color.fromARGB(255, 172, 172, 172),
+                  color: Color.fromARGB(255, 201, 198, 198),
                   //border: Border.all(width: 0.5, style: BorderStyle.solid),
                   borderRadius: BorderRadius.circular(20)),
               child: Stack(

@@ -106,7 +106,21 @@ class _ProductScreenState extends State<ProductScreen> {
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
                       InkWell(
-                        onTap: () {},
+                        onTap: () {
+                          const snackBar = SnackBar(
+                            backgroundColor: ColorPalette.primaryColor,
+                            content: Text(
+                              "Adicionado com Sucesso!",
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 25,
+                                color: ColorPalette.thirdColor
+                              ),
+                            ),
+                            duration: Duration(seconds: 1),
+                          );
+                          ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                        },
                         child: Container(
                           padding: EdgeInsets.all(18),
                           decoration: BoxDecoration(

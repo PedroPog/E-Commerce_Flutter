@@ -27,6 +27,7 @@ class _HomeScreenState extends State<HomeScreen> {
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: <Widget>[
             IconButton(
+              iconSize: 35,
               icon: Icon(
                 Icons.home_outlined,
                 color: currentPageIndex == 0 ?
@@ -40,6 +41,7 @@ class _HomeScreenState extends State<HomeScreen> {
               },
             ),
             IconButton(
+              iconSize: 35,
               icon: Icon(
                 Icons.favorite_border_rounded,
                 color: currentPageIndex == 1 ?
@@ -54,6 +56,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             Spacer(),
             IconButton(
+              iconSize: 35,
               icon: Icon(
                 Icons.person_2_outlined,
                 color: currentPageIndex == 2 ?
@@ -69,18 +72,30 @@ class _HomeScreenState extends State<HomeScreen> {
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        backgroundColor: ColorPalette.primaryColor,
-        onPressed: (){
-
-        },
-        child: Icon(Icons.shopping_cart_outlined),
+      floatingActionButton: Container(
+        width: 80.0,
+        height: 80.0,
+        child: FloatingActionButton(
+          onPressed: () {
+            Navigator.pushNamed(context, '/carrinho');
+          },
+          backgroundColor: ColorPalette.primaryColor,
+          foregroundColor: ColorPalette.thirdColor,
+          child: Icon(
+            Icons.shopping_cart_outlined,
+            size: 28,
+            ),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(40.0)
+          ),
+          
+        ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       body: <Widget>[
-        ProfilePage(),
-        FavoritePage(),
         HomePage(),
+        FavoritePage(),
+        ProfilePage(),        
       ][currentPageIndex],
     );
   }

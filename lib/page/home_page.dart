@@ -57,7 +57,8 @@ class _HomePageState extends State<HomePage> {
   List<String> listBanner = [
     "assets/cover.jpg",
     "assets/banner.png",
-    "assets/cover3.jpg"
+    "assets/cover.jpg",
+    "assets/banner.png"
   ]; // Exemplos de caminhos de imagem
   int _bannerIndex = 0;
 

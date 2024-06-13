@@ -162,7 +162,7 @@ class _CustomBottomSheetState extends State<CustomBottomSheet> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                "Total Payment:",
+                "Total dos Itens:",
                 style: TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.w600,
@@ -170,7 +170,7 @@ class _CustomBottomSheetState extends State<CustomBottomSheet> {
                 ),
               ),
               Text(
-                "R\$ "+resp.itemPrice.toString(),
+                "R\$ " + resp.itemPrice.toString(),
                 style: TextStyle(
                     color: ColorPalette.thirdColor,
                     fontSize: 20,
@@ -180,16 +180,29 @@ class _CustomBottomSheetState extends State<CustomBottomSheet> {
           ),
           SizedBox(height: 30),
           InkWell(
-            onTap: () {},
+            onTap: () {
+              const snackBar = SnackBar(
+                backgroundColor: ColorPalette.primaryColor,
+                content: Text(
+                  "Adicionado com Sucesso!",
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 25,
+                      color: ColorPalette.thirdColor),
+                ),
+                duration: Duration(seconds: 1),
+              );
+              ScaffoldMessenger.of(context).showSnackBar(snackBar);
+            },
             child: Container(
               padding: EdgeInsets.symmetric(vertical: 20, horizontal: 100),
               decoration: BoxDecoration(
                   color: ColorPalette.thirdColor,
                   borderRadius: BorderRadius.circular(30)),
               child: Text(
-                "Checkout",
+                "Adicionar no Carrinho",
                 style: TextStyle(
-                    fontSize: 17,
+                    fontSize: 13,
                     fontWeight: FontWeight.w600,
                     letterSpacing: 1,
                     color: Colors.black),
